@@ -1,0 +1,442 @@
+
+//* Page Elements //
+.header {
+  background: $white;
+  overflow: hidden;
+  @include box-shadow(0 5px 3px rgba(0, 0, 0, .3));
+
+  .main-title {
+    margin: 8px 12px;
+    font-family: 'Mr Dafoe', cursive;
+    color: $grey;
+  }
+
+  .short-logo {
+
+  }
+}
+
+
+//* Task Group */
+.task-group {
+  float: left;
+  margin: 0 10px;
+
+  &:first-child {
+    padding-right: 20px;
+    border-right: 3px dotted darken($weebDkBlue, 10);
+  }
+}
+
+.task-groupName {
+  text-transform: uppercase;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+//* Task List */
+.tasklist {
+  @include border-radius(6px);
+  @include box-shadow(2px 2px 4px rgba(0, 0, 0, .5));
+  min-width: 400px;
+  background: url(../img/weeb_bgtex.png);
+  margin-bottom: 20px;
+
+  .list-header {
+    margin: 0;
+    padding: 8px 4px;
+    @include border-top-left-radius(4px);
+    @include border-top-right-radius(4px);
+    @include gradient-vertical($weebLightGrey, $white);
+    @include box-shadow(0 1px 1px $lightGrey);
+    border-bottom: 1px solid $weebLightGrey;
+    font-size: 14px;
+    font-weight: normal;
+
+    a {
+      text-decoration: none;
+      color: $weebMidGrey;
+      overflow: hidden;
+      display: inline-block;
+      width: 100%;
+      .name {
+        float: left;
+      }
+      .icon {
+        float: right;
+        margin-right: 4px;
+        font-size: 18px;
+      }
+
+      &:hover {
+        color: $weebBlue;
+      }
+    }
+
+  }
+
+}
+
+
+.task-add {
+  padding: 6px;
+  border-top: 1px solid black;
+  color: $white;
+
+  .task-add-header {
+    padding-bottom: 3px;
+    margin: 0 0 4px 0;
+    font-weight: normal;
+  }
+
+  .new-task {
+    width: 100%;
+    display: inline-block;
+    height: 25px;
+    padding: 3px;
+    border: none;
+    @include border-radius(3px)
+  }
+}
+
+
+//* Expanded Task List */
+
+.tasklist-expanded {
+  .exp-tasklist {
+    float: left;
+    min-width: 400px;
+  }
+
+  .list-header {
+      display: inline-block;
+      padding: 6px 20px 4px 10px;
+      @include border-top-left-radius(4px);
+      @include border-top-right-radius(4px);
+      @include gradient-vertical($weebLightGrey, $white);
+      margin-top: 20px;
+
+      h2 {
+        margin: 0;
+        display: inline-block;
+        color: $weebMidGrey;
+      }
+
+      .return-link {
+        text-decoration: none;
+        color: $weebBlue;
+        margin-right: 10px;
+        font-size: 22px;
+        padding: 0 4px;
+      }
+  }
+
+  .tasklist-wrapper {
+    background: $white;
+    overflow: hidden;
+    @include border-top-right-radius(10px);
+    @include border-bottom-right-radius(10px);
+    @include border-bottom-left-radius(10px);
+
+    .tasklist-inner {
+      @include border-radius(20px);
+      margin: 10px;
+      background: $weebMidGrey;
+      background-image: url(../img/weeb_bgtex.png);
+      overflow: hidden;
+    }
+
+    .exp-tasklist {
+      margin: 20px;
+    }
+
+    .tasklist-label {
+      color: $white;
+      padding: 8px;
+      @include border-radius(4px);
+      background-color: $weebDkBlue;
+      position: relative;
+      margin-bottom: 22px;
+
+      &:after {
+        content: "";
+        border-style: solid;
+        border-width: 16px 16px 0px 16px;
+        border-color: $weebDkBlue transparent $weebDkBlue transparent;
+        height: 0px;
+        position: absolute;
+        left: 10px;
+        bottom: -16px;
+        width: 0px;
+      }
+    }
+
+    .tasks-done .tasklist-label {
+      background-color: $weebYellow;
+
+      &:after {
+        border-color: $weebYellow transparent $weebYellow transparent;
+      }
+    }
+
+    .tasklist-content {
+
+    }
+
+    .week-label {
+      color: white;
+      margin: 10px 0;
+    }
+  }
+}
+
+//* Tasks */
+.task {
+  @include clearfix;
+
+
+  .task-label {
+    float: left;
+  }
+
+  .expander {
+    display: none;
+    float: left;
+    width: 15px;
+    height: 15px;
+    color: $white;
+    background-color: $weebMidBlue;
+    border-radius: 20px;
+    margin: 5px 10px 0 10px;
+    text-align: center;
+    cursor: pointer;
+    @include gradient-vertical(lighten($weebBlue, 10), $weebDkBlue);
+
+
+    .icon {
+      line-height: 16px;
+
+    }
+
+    &.closed {
+      .icon-plus {
+        display: inline-block;
+      }
+
+      .icon-minus {
+        display: none;
+      }
+    }
+
+    &.open {
+      .icon-minus {
+        display: inline-block;
+      }
+
+      .icon-plus {
+        display: none;
+      }
+    }
+  }
+
+  .task-info {
+    padding: 8px 6px;
+    overflow: hidden;
+  }
+
+  .task-title {
+    &.task-color-black {
+      color: $black;
+    }
+
+    &.task-color-red {
+      color: $red;
+    }
+
+    &.task-color-grey {
+        color: $weebLightGrey;
+    }
+
+  }
+
+  .task-date {
+    font-size: 10px;
+    color: lighten($grey, 10);
+  }
+
+  .task-status {
+    height: 15px;
+    width: 15px;
+    @include border-radius(4px);
+    border: 2px solid;
+    cursor: pointer;
+    float: right;
+
+    &.task-color-black {
+      border-color: $black;
+      color: $black;
+    }
+
+    &.task-color-red {
+      border-color: $red;
+      color: $red;
+    }
+
+    &.task-color-grey {
+      border-color: $grey;
+      color: $grey;
+    }
+
+    .icon {
+      display: none;
+      line-height: 15px;
+    }
+
+    &.task-complete {
+      .icon {
+        display: block;
+      }
+    }
+  }
+
+  .task-details {
+    border-bottom: 1px solid $lightGrey;
+    background-color: $white;
+    background-image: url(../img/bg_noise.png);
+    cursor: move;
+  }
+
+} // end task
+
+.task-children {
+  padding: 0;
+  list-style: none;
+  margin-left: 15px;
+
+  &.closed {
+    height: 0;
+    overflow: hidden;
+  }
+
+  &.open {
+    height: auto;
+  }
+
+  &.droppable {
+    border: 3px dotted $white;
+    height: 30px;
+  }
+
+ .task-details {
+    border-left: 1px solid $lightGrey;
+    @include box-shadow(-3px 0 4px rgba(0, 0, 0, .4));
+  }
+
+}
+
+
+.ghost {
+  background: rgba(0, 0, 0, .3);
+  min-height: 100px;
+}
+
+.task-actions {
+  margin: 4px;
+  padding: 0;
+  text-align: left;
+
+  li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+  }
+
+
+  .task-color {
+    border: 1px solid $lightGrey;
+    @include border-radius(4px);
+    cursor: pointer;
+    position: relative;
+
+    .icon-caret-down {
+      display: inline-block;
+      vertical-align: top;
+      line-height: 14px;
+    }
+
+    &:hover .task-color-options {
+      display: block;
+    }
+
+  }
+
+  .current-color, .color-option{
+    display: inline-block;
+    @include border-radius(2px);
+    width: 10px;
+    height: 10px;
+    margin: 2px;
+    line-height: 16px;
+    vertical-align: top;
+  }
+
+  .task-color, .current-color, .color-option {
+      &.task-color-black {
+        background-color: $black;
+      }
+
+      &.task-color-red {
+        background-color: $red;
+      }
+
+      &.task-color-grey {
+        background-color: $grey;
+      }
+  }
+
+}
+
+
+.tasks-block {
+  margin: 0px;
+  padding: 0;
+  list-style: none;
+
+  li {
+    list-style: none;
+  }
+}
+
+
+.task-color-options {
+  display: none;
+  position: absolute;
+  background-color: white;
+  margin: 0;
+  padding: 5px;
+  width: 60px;
+  left: 0;
+  top: 14px;
+  border: none;
+  text-align: center;
+  border: 1px solid $lightGrey;
+  @include border-bottom-left-radius(6px);
+  @include border-bottom-right-radius(6px);
+  @include border-top-left-radius(6px);
+  z-index: 3000;
+
+  li {
+    border-top: none;
+  }
+
+  .color-option {
+    height: 15px;
+    width: 15px;
+  }
+}
+
+
+
+
+
