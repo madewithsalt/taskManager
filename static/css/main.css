@@ -1248,6 +1248,8 @@ body {
     margin-right: 10px;
     font-size: 22px;
     padding: 0 4px; }
+.tasklist-expanded .list-empty-label {
+  color: white; }
 .tasklist-expanded .tasklist-wrapper {
   background: white;
   overflow: hidden;

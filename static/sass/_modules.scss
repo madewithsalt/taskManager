@@ -131,6 +131,10 @@
       }
   }
 
+  .list-empty-label {
+    color: $white;
+  }
+
   .tasklist-wrapper {
     background: $white;
     overflow: hidden;
@@ -145,6 +149,7 @@
       background-image: url(../img/weeb_bgtex.png);
       overflow: hidden;
     }
+
 
     .exp-tasklist {
       margin: 20px;
@@ -177,10 +182,6 @@
       &:after {
         border-color: $weebYellow transparent $weebYellow transparent;
       }
-    }
-
-    .tasklist-content {
-
     }
 
     .week-label {
